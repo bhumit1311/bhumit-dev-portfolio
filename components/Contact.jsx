@@ -37,11 +37,17 @@ const ArrowIcon = () => (
     <path d="M2.5 11.5L11.5 2.5M11.5 2.5H4.5M11.5 2.5V9.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
+const WhatsAppIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.057 23.428a.5.5 0 0 0 .609.61l5.652-1.48A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.686-.523-5.208-1.433l-.374-.222-3.853 1.01 1.028-3.758-.243-.386A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+  </svg>
+);
 
 /* ── Contact info ───────────────────────────────── */
 const CONTACTS = [
   { label: "Email", value: "bhumitvaghela71@gmail.com", href: "mailto:bhumitvaghela71@gmail.com", icon: <MailIcon />, copy: true },
-  { label: "Phone", value: "+91 9898471014", href: "tel:+919898471014", icon: <PhoneIcon /> },
+  { label: "WhatsApp", value: "+91 9898471014", href: "https://wa.me/919898471014?text=Hi%20Bhumit%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!", icon: <WhatsAppIcon />, newTab: true, whatsapp: true },
   { label: "LinkedIn", value: "bhumit-vaghela", href: "https://www.linkedin.com/in/bhumit-vaghela-752130330/", icon: <LinkedinIcon />, newTab: true },
   { label: "GitHub", value: "bhumit1311", href: "https://github.com/bhumit1311", icon: <GithubIcon />, newTab: true },
 ];
@@ -85,7 +91,7 @@ function ContactRow({ item }) {
         e.currentTarget.style.background = "var(--c-surface-2)";
       }}
     >
-      <div style={{ width: "36px", height: "36px", borderRadius: "9px", background: "rgba(90,103,242,0.1)", border: "1px solid rgba(90,103,242,0.15)", display: "grid", placeItems: "center", color: "var(--c-accent-light)", flexShrink: 0 }}>
+      <div style={{ width: "36px", height: "36px", borderRadius: "9px", background: item.whatsapp ? "rgba(37,211,102,0.1)" : "rgba(90,103,242,0.1)", border: item.whatsapp ? "1px solid rgba(37,211,102,0.2)" : "1px solid rgba(90,103,242,0.15)", display: "grid", placeItems: "center", color: item.whatsapp ? "#25d366" : "var(--c-accent-light)", flexShrink: 0 }}>
         {item.icon}
       </div>
       <div style={{ flex: 1, minWidth: 0 }}>
