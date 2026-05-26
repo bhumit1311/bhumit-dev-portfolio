@@ -123,7 +123,8 @@ export default function Hero() {
             >
               BHUMIT
             </motion.h1>
-            <motion.h1
+            <motion.div
+              role="presentation"
               variants={fadeUp}
               style={{
                 fontSize: "clamp(48px, 6.5vw, 84px)",
@@ -138,7 +139,7 @@ export default function Hero() {
               }}
             >
               VAGHELA
-            </motion.h1>
+            </motion.div>
 
             {/* Tagline + red dot row */}
             <motion.div variants={fadeUp} className="hero-tagline">
