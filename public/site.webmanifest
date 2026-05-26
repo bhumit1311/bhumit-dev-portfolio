@@ -1,0 +1,16 @@
+{
+  "name": "Bhumit Vaghela — Portfolio",
+  "short_name": "Bhumit.dev",
+  "description": "Full-stack web developer portfolio — React, Next.js, Node.js, Python",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05070D",
+  "theme_color": "#dc2626",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
