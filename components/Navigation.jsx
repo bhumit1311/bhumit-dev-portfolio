@@ -54,7 +54,7 @@ export default function Navigation() {
           </a>
 
           {/* Desktop links */}
-          <nav style={{ display: "flex", alignItems: "center", gap: "32px" }} className="hidden md:flex">
+          <nav className="nav-desktop-links">
             {links.map(l => (
               <a
                 key={l.label}
@@ -69,7 +69,7 @@ export default function Navigation() {
           </nav>
 
           {/* CTA */}
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }} className="hidden md:flex">
+          <div className="nav-desktop-cta">
             <a href="/Bhumit-Vaghela-Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ padding: "7px 16px", borderRadius: "8px", fontSize: "13px" }}>
               Resume
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -80,7 +80,7 @@ export default function Navigation() {
           </div>
 
           {/* Hamburger */}
-          <button type="button" onClick={() => setOpen(v => !v)} className="md:hidden" style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: "5px", width: "36px", height: "36px", background: "transparent", border: "none", cursor: "pointer", padding: "6px" }} aria-label="Toggle menu">
+          <button type="button" onClick={() => setOpen(v => !v)} className="nav-hamburger" aria-label="Toggle menu">
             <motion.span animate={{ rotate: open ? 45 : 0, y: open ? 7 : 0 }} transition={{ duration: 0.22 }} style={{ display: "block", height: "1.5px", background: "var(--c-fg)", borderRadius: "99px", transformOrigin: "center" }} />
             <motion.span animate={{ opacity: open ? 0 : 1, scaleX: open ? 0 : 1 }} transition={{ duration: 0.22 }} style={{ display: "block", height: "1.5px", background: "var(--c-fg)", borderRadius: "99px" }} />
             <motion.span animate={{ rotate: open ? -45 : 0, y: open ? -7 : 0 }} transition={{ duration: 0.22 }} style={{ display: "block", height: "1.5px", background: "var(--c-fg)", borderRadius: "99px", transformOrigin: "center" }} />
@@ -96,8 +96,7 @@ export default function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="md:hidden"
-            style={{ position: "fixed", top: "60px", left: 0, right: 0, zIndex: 190, background: "rgba(5,7,13,0.98)", backdropFilter: "blur(24px)", borderBottom: "1px solid rgba(255,255,255,0.05)", padding: "24px 32px 32px" }}
+            className="nav-mobile-panel"
           >
             <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
               {links.map((l, i) => (
@@ -145,6 +144,64 @@ export default function Navigation() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <style>{`
+        .nav-desktop-links {
+          display: none;
+        }
+        .nav-desktop-cta {
+          display: none;
+        }
+        .nav-hamburger {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 5px;
+          width: 36px;
+          height: 36px;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          padding: 6px;
+        }
+        
+        .nav-mobile-panel {
+          position: fixed;
+          top: 60px;
+          left: 0;
+          right: 0;
+          z-index: 190;
+          background: rgba(5,7,13,0.98);
+          backdrop-filter: blur(24px);
+          -webkit-backdrop-filter: blur(24px);
+          border-bottom: 1px solid rgba(255,255,255,0.05);
+          padding: 24px 20px 24px;
+        }
+        @media (min-width: 480px) {
+          .nav-mobile-panel {
+            padding: 24px 32px 32px;
+          }
+        }
+        
+        @media (min-width: 768px) {
+          .nav-desktop-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+          }
+          .nav-desktop-cta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+          .nav-hamburger {
+            display: none;
+          }
+          .nav-mobile-panel {
+            display: none !important;
+          }
+        }
+      `}</style>
     </>
   );
 }

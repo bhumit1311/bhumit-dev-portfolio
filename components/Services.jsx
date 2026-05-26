@@ -35,14 +35,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-between",
-            alignItems: "flex-end",
-            gap: "24px",
-            marginBottom: "64px",
-          }}
+          className="services-header"
         >
           <div>
             <p className="eyebrow">Services</p>
@@ -64,19 +57,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              style={{
-                background: "var(--c-bg)",
-                padding: "36px 40px",
-                display: "grid",
-                gridTemplateColumns: "80px 1fr 280px",
-                gap: "32px",
-                alignItems: "start",
-                transition: "background 0.2s ease",
-                cursor: "default",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = "var(--c-surface-1)")}
-              onMouseLeave={(e) => (e.currentTarget.style.background = "var(--c-bg)")}
-              className="md:grid-cols-[80px_1fr_280px] grid-cols-1"
+              className="service-row"
             >
               {/* Number */}
               <div style={{ paddingTop: "4px" }}>
@@ -107,14 +88,7 @@ export default function Services() {
               </div>
 
               {/* Outcome */}
-              <div style={{
-                paddingTop: "4px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-end",
-                gap: "16px",
-                textAlign: "right",
-              }}>
+              <div className="service-outcome">
                 <div style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -145,14 +119,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          style={{
-            marginTop: "40px",
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "20px",
-          }}
+          className="services-cta-strip"
         >
           <div>
             <p style={{ fontSize: "16px", fontWeight: 700, color: "var(--c-fg)", marginBottom: "4px" }}>
@@ -170,6 +137,74 @@ export default function Services() {
           </a>
         </motion.div>
       </div>
+
+      <style>{`
+        .services-header {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          margin-bottom: 40px;
+        }
+        @media (min-width: 768px) {
+          .services-header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 64px;
+          }
+        }
+        
+        .service-row {
+          background: var(--c-bg);
+          padding: 24px 20px;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 20px;
+          align-items: start;
+          transition: background 0.2s ease;
+          cursor: default;
+        }
+        .service-row:hover {
+          background: var(--c-surface-1);
+        }
+        @media (min-width: 768px) {
+          .service-row {
+            padding: 36px 40px;
+            grid-template-columns: 80px 1fr 280px;
+            gap: 32px;
+          }
+        }
+        
+        .service-outcome {
+          padding-top: 4px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          text-align: left;
+        }
+        @media (min-width: 768px) {
+          .service-outcome {
+            align-items: flex-end;
+            text-align: right;
+            padding-top: 4px;
+          }
+        }
+        
+        .services-cta-strip {
+          margin-top: 40px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+        @media (min-width: 640px) {
+          .services-cta-strip {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+          }
+        }
+      `}</style>
     </section>
   );
 }

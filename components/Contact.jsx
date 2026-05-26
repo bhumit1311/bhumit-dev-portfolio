@@ -265,8 +265,7 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
             <div
-              className="card"
-              style={{ padding: "30px", border: "1px solid var(--c-border-strong)" }}
+              className="card contact-card"
             >
               {/* Accent line */}
               <div style={{ height: "2px", background: "linear-gradient(90deg, var(--c-accent), var(--c-accent-light), transparent)", borderRadius: "99px", marginBottom: "24px" }} />
@@ -280,7 +279,7 @@ export default function Contact() {
 
               <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: "14px" }} noValidate>
                 {/* Name + Email side by side */}
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }} className="sm:grid-cols-2 grid-cols-1">
+                <div className="contact-form-row">
                   <div style={{ display: "flex", flexDirection: "column", gap: "7px" }}>
                     <label htmlFor="c-name" style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--c-fg-3)" }}>Name</label>
                     <input
@@ -383,6 +382,29 @@ export default function Contact() {
           </motion.div>
         </div>
       </div>
+
+      <style>{`
+        .contact-card {
+          padding: 20px;
+          border: 1px solid var(--c-border-strong);
+        }
+        @media (min-width: 640px) {
+          .contact-card {
+            padding: 30px;
+          }
+        }
+        
+        .contact-form-row {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+        @media (min-width: 640px) {
+          .contact-form-row {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+      `}</style>
     </section>
   );
 }
