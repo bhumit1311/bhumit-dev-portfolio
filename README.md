@@ -2,7 +2,7 @@
 
 A premium, high-performance, single-page portfolio website built with modern frontend and backend technologies. This project is fully optimized for speed, responsive design, and features custom interactive animations and a secure email delivery system.
 
-Live Preview: [bhumit-dev-portfolio.vercel.app](https://bhumit-dev-portfolio.vercel.app)
+Live Preview: [bhumitvaghela.dev](https://bhumitvaghela.dev)
 
 ---
 
