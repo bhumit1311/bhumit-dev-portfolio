@@ -159,16 +159,84 @@ export default function About() {
             </div>
           ))}
         </motion.div>
+        {/* ── Soft Skills ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+          style={{ marginTop: "32px" }}
+        >
+          <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--c-fg-3)", marginBottom: "16px" }}>
+            Soft Skills
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px" }} className="soft-skills-grid">
+
+            {/* Good Communication */}
+            <div
+              style={{ padding: "20px 22px", borderRadius: "14px", border: "1px solid var(--c-border)", background: "var(--c-surface-1)", display: "flex", flexDirection: "column", gap: "12px", transition: "border-color 0.2s, background 0.2s", cursor: "default" }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(90,103,242,0.3)"; e.currentTarget.style.background = "var(--c-surface-2)"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--c-border)"; e.currentTarget.style.background = "var(--c-surface-1)"; }}
+            >
+              <div style={{ width: "40px", height: "40px", borderRadius: "11px", background: "rgba(90,103,242,0.08)", border: "1px solid rgba(90,103,242,0.15)", display: "grid", placeItems: "center", color: "var(--c-accent-light)", flexShrink: 0 }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </div>
+              <div>
+                <p style={{ fontSize: "14px", fontWeight: 800, color: "var(--c-fg)", letterSpacing: "-0.01em", marginBottom: "5px" }}>Good Communication</p>
+                <p style={{ fontSize: "12.5px", lineHeight: 1.65, color: "var(--c-fg-3)" }}>Clear, concise communicator — I keep clients and teammates informed at every stage.</p>
+              </div>
+            </div>
+
+            {/* Best Under Pressure */}
+            <div
+              style={{ padding: "20px 22px", borderRadius: "14px", border: "1px solid var(--c-border)", background: "var(--c-surface-1)", display: "flex", flexDirection: "column", gap: "12px", transition: "border-color 0.2s, background 0.2s", cursor: "default" }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(220,38,38,0.3)"; e.currentTarget.style.background = "var(--c-surface-2)"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--c-border)"; e.currentTarget.style.background = "var(--c-surface-1)"; }}
+            >
+              <div style={{ width: "40px", height: "40px", borderRadius: "11px", background: "rgba(220,38,38,0.08)", border: "1px solid rgba(220,38,38,0.15)", display: "grid", placeItems: "center", color: "var(--c-accent-light)", flexShrink: 0 }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              </div>
+              <div>
+                <p style={{ fontSize: "14px", fontWeight: 800, color: "var(--c-fg)", letterSpacing: "-0.01em", marginBottom: "5px" }}>Best Under Pressure</p>
+                <p style={{ fontSize: "12.5px", lineHeight: 1.65, color: "var(--c-fg-3)" }}>I stay focused and deliver quality work even under tight deadlines and high-stakes situations.</p>
+              </div>
+            </div>
+
+            {/* Good at Management */}
+            <div
+              style={{ padding: "20px 22px", borderRadius: "14px", border: "1px solid var(--c-border)", background: "var(--c-surface-1)", display: "flex", flexDirection: "column", gap: "12px", transition: "border-color 0.2s, background 0.2s", cursor: "default" }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(52,211,153,0.3)"; e.currentTarget.style.background = "var(--c-surface-2)"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--c-border)"; e.currentTarget.style.background = "var(--c-surface-1)"; }}
+            >
+              <div style={{ width: "40px", height: "40px", borderRadius: "11px", background: "rgba(52,211,153,0.08)", border: "1px solid rgba(52,211,153,0.15)", display: "grid", placeItems: "center", color: "var(--c-green)", flexShrink: 0 }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+                </svg>
+              </div>
+              <div>
+                <p style={{ fontSize: "14px", fontWeight: 800, color: "var(--c-fg)", letterSpacing: "-0.01em", marginBottom: "5px" }}>Good at Management</p>
+                <p style={{ fontSize: "12.5px", lineHeight: 1.65, color: "var(--c-fg-3)" }}>Organised and self-directed — I prioritise tasks effectively and keep projects on track.</p>
+              </div>
+            </div>
+
+          </div>
+        </motion.div>
       </div>
 
       <style>{`
         @media (max-width: 860px) {
           .about-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
           .pillars-grid { grid-template-columns: 1fr !important; }
+          .soft-skills-grid { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 500px) {
           .about-ctas { flex-direction: column !important; gap: 10px !important; }
           .about-ctas > a { width: 100% !important; }
+          .soft-skills-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>
