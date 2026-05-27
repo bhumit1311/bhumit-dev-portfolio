@@ -4,21 +4,74 @@ export const runtime = "nodejs";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Remove control characters, newlines, double quotes, backslashes, and angle brackets to prevent header injection or escaping
+function sanitizeName(val) {
+  return val ? String(val).replace(/[\r\n"\\<>]/g, "").trim() : "";
+}
+
+function sanitizeEmail(val) {
+  return val ? String(val).replace(/[\r\n"\\<>]/g, "").trim() : "";
+}
+
+function sanitizeType(val) {
+  return val ? String(val).replace(/[\r\n"\\<>]/g, "").trim() : "";
+}
+
 export async function POST(request) {
   try {
-    const body = await request.json();
-    const name = body?.name?.trim();
-    const email = body?.email?.trim();
-    const message = body?.message?.trim();
-    const type = body?.type;
+    // 1. Content-Type Validation
+    const contentType = request.headers.get("content-type") || "";
+    if (!contentType.includes("application/json")) {
+      return Response.json(
+        { error: "Content-Type must be application/json." },
+        { status: 415 }
+      );
+    }
 
-    if (!name || !email || !message) {
+    // 2. Safe JSON Parsing
+    let body;
+    try {
+      body = await request.json();
+    } catch (e) {
+      return Response.json(
+        { error: "Invalid JSON format in request body." },
+        { status: 400 }
+      );
+    }
+
+    const rawName = body?.name;
+    const rawEmail = body?.email;
+    const rawMessage = body?.message;
+    const rawType = body?.type;
+
+    // 3. Presence check
+    if (!rawName || !rawEmail || !rawMessage) {
       return Response.json(
         { error: "All fields are required." },
         { status: 400 }
       );
     }
 
+    // 4. Length constraints
+    if (
+      String(rawName).length > 100 ||
+      String(rawEmail).length > 255 ||
+      String(rawMessage).length > 5000 ||
+      (rawType && String(rawType).length > 50)
+    ) {
+      return Response.json(
+        { error: "Input length limits exceeded (Name <= 100, Email <= 255, Message <= 5000, Type <= 50)." },
+        { status: 400 }
+      );
+    }
+
+    // 5. Sanitization
+    const name = sanitizeName(rawName);
+    const email = sanitizeEmail(rawEmail);
+    const message = String(rawMessage).trim(); // message is safe to contain newlines/quotes as it goes to the email body
+    const type = sanitizeType(rawType);
+
+    // 6. Validation
     if (!emailPattern.test(email)) {
       return Response.json(
         { error: "Please enter a valid email address." },
@@ -28,10 +81,10 @@ export async function POST(request) {
 
     const transporter = createContactTransporter();
     
-    // 1. Send inquiry notification email to Bhumit (the site owner)
+    // Send inquiry notification email to Bhumit (the site owner)
     await transporter.sendMail(buildContactEmail({ name, email, message, type }));
 
-    // 2. Send styled confirmation auto-reply email to the Inquirer (user)
+    // Send styled confirmation auto-reply email to the Inquirer (user)
     try {
       await transporter.sendMail(buildAutoReplyEmail({ name, email, type }));
     } catch (autoReplyError) {
@@ -60,3 +113,15 @@ export async function POST(request) {
     );
   }
 }
+
+// Explicitly handle and reject GET, PUT, DELETE, PATCH with JSON response instead of default Next.js HTML error/404/405 pages.
+const methodNotAllowed = () => Response.json(
+  { error: "Method Not Allowed. Please use POST." },
+  { status: 405 }
+);
+
+export { methodNotAllowed as GET };
+export { methodNotAllowed as PUT };
+export { methodNotAllowed as DELETE };
+export { methodNotAllowed as PATCH };
+
