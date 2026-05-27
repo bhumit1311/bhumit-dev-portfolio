@@ -19,6 +19,27 @@ function sanitizeType(val) {
 
 export async function POST(request) {
   try {
+    // CSRF Protection / Same-Origin Check
+    const host = request.headers.get("host");
+    const origin = request.headers.get("origin");
+    if (origin) {
+      try {
+        const originHost = new URL(origin).host;
+        const isLocalhost = originHost.startsWith("localhost") || originHost.startsWith("127.0.0.1");
+        if (originHost !== host && !isLocalhost) {
+          return Response.json(
+            { error: "Forbidden: Cross-Origin request blocked." },
+            { status: 403 }
+          );
+        }
+      } catch (e) {
+        return Response.json(
+          { error: "Forbidden: Invalid origin header." },
+          { status: 403 }
+        );
+      }
+    }
+
     // 1. Content-Type Validation
     const contentType = request.headers.get("content-type") || "";
     if (!contentType.includes("application/json")) {
