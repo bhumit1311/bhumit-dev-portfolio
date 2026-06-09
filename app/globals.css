@@ -8,6 +8,7 @@ html {
 @theme inline {
   --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
   --font-display: "Syne", "Inter", sans-serif;
+  --font-readable: "Space Grotesk", "Inter", sans-serif;
   --font-mono: "JetBrains Mono", "Cascadia Code", monospace;
 }
 

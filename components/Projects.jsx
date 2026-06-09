@@ -122,14 +122,15 @@ function ProjectCard({ project, index }) {
       {/* Title */}
       <h3 style={{
         fontSize: "19px",
-        fontWeight: 800, letterSpacing: "-0.025em", color: "var(--c-fg)",
-        marginBottom: "10px", lineHeight: 1.2,
+        fontFamily: "var(--font-readable)",
+        fontWeight: 700, letterSpacing: "-0.02em", color: "var(--c-fg)",
+        marginBottom: "10px", lineHeight: 1.25,
       }}>
         {project.title}
       </h3>
 
       {/* Description */}
-      <p style={{ fontSize: "13.5px", lineHeight: 1.7, color: "var(--c-fg-3)", marginBottom: "28px" }}>
+      <p style={{ fontSize: "14px", fontFamily: "var(--font-readable)", lineHeight: 1.75, color: "var(--c-fg-2)", marginBottom: "28px" }}>
         {project.subtitle}
       </p>
 
@@ -202,10 +203,10 @@ export default function Projects() {
         >
           <div>
             <p className="eyebrow">Projects</p>
-            <h2 style={{ fontSize: "clamp(32px, 4vw, 54px)", fontWeight: 800, lineHeight: 1.05, color: "var(--c-fg)" }}>
+            <h2 style={{ fontSize: "clamp(32px, 4vw, 54px)", fontFamily: "var(--font-readable)", fontWeight: 700, lineHeight: 1.05, color: "var(--c-fg)" }}>
               Selected work.
             </h2>
-            <p style={{ marginTop: "12px", fontSize: "14px", lineHeight: 1.8, color: "var(--c-fg-3)", maxWidth: "380px" }}>
+            <p style={{ marginTop: "12px", fontSize: "14.5px", fontFamily: "var(--font-readable)", lineHeight: 1.8, color: "var(--c-fg-2)", maxWidth: "380px" }}>
               Real projects — built and shipped. Pulling live from GitHub.
             </p>
           </div>
