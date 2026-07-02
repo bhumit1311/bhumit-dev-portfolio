@@ -384,6 +384,34 @@ export default function Contact() {
       </div>
 
       <style>{`
+        .contact-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+        @media (min-width: 960px) {
+          .contact-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+          }
+        }
+        
+        .contact-cards-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        @media (min-width: 640px) {
+          .contact-cards-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+        @media (min-width: 960px) {
+          .contact-cards-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
         .contact-card {
           padding: 20px;
           border: 1px solid var(--c-border-strong);
