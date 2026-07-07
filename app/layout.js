@@ -75,6 +75,12 @@ export const metadata = {
   category: "technology",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#05070d",
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",

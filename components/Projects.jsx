@@ -56,6 +56,12 @@ function getCategory(name, desc, lang) {
 
 function toProject(r, i) {
   const sub = r.description || "A project on GitHub.";
+  let liveUrl = r.homepage || "";
+  
+  if (r.name.toLowerCase() === "smartfarmer") {
+    liveUrl = "https://smartfarmer-uuvz.onrender.com/dashboard/";
+  }
+
   return {
     id: String(i + 1).padStart(2, "0"),
     title: formatName(r.name),
@@ -63,7 +69,7 @@ function toProject(r, i) {
     category: getCategory(r.name, sub, r.language),
     updated: fmt.format(new Date(r.updated_at)),
     url: r.html_url,
-    live: r.homepage || "",
+    live: liveUrl,
     stars: r.stargazers_count,
     forks: r.forks_count,
     lang: r.language || "",

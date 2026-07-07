@@ -111,7 +111,7 @@ export default function Hero() {
             <motion.h1
               variants={fadeUp}
               style={{
-                fontSize: "clamp(48px, 6.5vw, 84px)",
+                fontSize: "clamp(32px, 10vw, 84px)",
                 fontWeight: 800,
                 lineHeight: 0.9,
                 letterSpacing: "-0.03em",
@@ -127,7 +127,7 @@ export default function Hero() {
               role="presentation"
               variants={fadeUp}
               style={{
-                fontSize: "clamp(48px, 6.5vw, 84px)",
+                fontSize: "clamp(32px, 10vw, 84px)",
                 fontWeight: 800,
                 lineHeight: 0.9,
                 letterSpacing: "-0.03em",
@@ -310,7 +310,7 @@ export default function Hero() {
         @media (max-width: 960px) {
           .hero-section-container { padding: 100px 32px 60px !important; }
           .hero-grid { grid-template-columns: 1fr !important; gap: 56px !important; }
-          .hero-photo-col { max-width: 320px; margin: 0 auto; order: -1; }
+          .hero-photo-col { max-width: 320px; width: 100%; margin: 0 auto; order: -1; }
           .hero-text-col { display: flex; flex-direction: column; align-items: center; text-align: center; }
           .hero-divider { background: linear-gradient(90deg, transparent, #dc2626, transparent) !important; margin: 0 auto 24px !important; }
           .hero-tagline { justify-content: center !important; }
