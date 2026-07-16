@@ -49,7 +49,7 @@ function Ticker() {
 }
 
 const STATS = [
-  { value: "3+", label: "Projects" },
+  { value: "6+", label: "Projects" },
   { value: "0 to 1yr", label: "Experience" },
   { value: "24h", label: "Response" },
   { value: "∞", label: "Passion" },

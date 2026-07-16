@@ -8,10 +8,10 @@ const fadeUp = {
 
 const DETAILS = [
   { label: "Education", value: "B.E. in IT (Pursuing) · Diploma Completed" },
-  { label: "Location", value: "Veraval, Gujarat, India" },
-  { label: "Looking for", value: "Internship or Junior Dev Role" },
+  { label: "Location", value: "Ahmedabad, Gujarat, India" },
+  { label: "Looking for", value: "Full-Stack or Software Engineering Role" },
   { label: "Work style", value: "Remote-first, async-friendly" },
-  { label: "Languages", value: "JavaScript · TypeScript · Python" },
+  { label: "Languages", value: "C · C++ · Java · Python · JavaScript" },
 ];
 
 const PILLARS = [
@@ -70,8 +70,8 @@ export default function About() {
             </h2>
 
             <p style={{ fontSize: "15.5px", lineHeight: 1.85, color: "var(--c-fg-2)", marginBottom: "20px" }}>
-              I&apos;m a web developer from Veraval, Gujarat — holding an IT Diploma, currently pursuing
-              my Bachelor&apos;s Degree, and actively building real-world projects while looking for internships or junior developer roles.
+              I&apos;m a results-oriented full-stack developer and final-year B.E. (IT) student from Ahmedabad, Gujarat.
+              I have hands-on experience in the MERN Stack, Django, and Python, and I am actively looking for full-stack developer or software engineering roles.
             </p>
             <p style={{ fontSize: "15px", lineHeight: 1.85, color: "var(--c-fg-3)" }}>
               I care deeply about code quality, consistent design systems, and shipping work that

@@ -78,9 +78,9 @@ function toProject(r, i) {
 }
 
 const FALLBACK = [
-  { id: "01", title: "RentNest PG Management", subtitle: "Full PG management system — bookings, occupancy tracking, and daily ops.", category: "Ops Tool", updated: "2026", url: "https://github.com/bhumit1311", live: "", stars: 0, forks: 0, lang: "JavaScript", isPublic: true },
-  { id: "02", title: "Manav Website", subtitle: "Clean, fast business website focused on frontend performance and clarity.", category: "Website", updated: "2026", url: "https://github.com/bhumit1311", live: "", stars: 0, forks: 0, lang: "Next.js", isPublic: true },
-  { id: "03", title: "Stockwise Inventory", subtitle: "Inventory management platform with real-time stock tracking and reporting.", category: "Inventory", updated: "2026", url: "https://github.com/bhumit1311", live: "", stars: 0, forks: 0, lang: "React", isPublic: true },
+  { id: "01", title: "MongoMeals", subtitle: "Premium Restaurant Web App with table booking and gourmet menu catalog.", category: "Website", updated: "2026", url: "https://github.com/bhumit1311/MongoMeal23", live: "https://mongo-meal23.vercel.app", stars: 0, forks: 0, lang: "React", isPublic: true },
+  { id: "02", title: "SmartFarmer", subtitle: "AI Crop Diagnostic Platform for farmers featuring AI-powered crop disease diagnosis.", category: "AI Tool", updated: "2026", url: "https://github.com/bhumit1311/SmartFarmer", live: "", stars: 0, forks: 0, lang: "Python", isPublic: true },
+  { id: "03", title: "Shraddha Videology", subtitle: "Freelance portfolio site for a video editor client with a 3D animated intro.", category: "Portfolio", updated: "2026", url: "https://github.com/bhumit1311/manavwebsite", live: "", stars: 0, forks: 0, lang: "Next.js", isPublic: true },
 ];
 
 function ProjectCard({ project, index }) {
